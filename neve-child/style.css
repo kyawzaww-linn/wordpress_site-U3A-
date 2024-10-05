@@ -5,3 +5,15 @@
  * Text Domain:	   neve-child
  * Description:    A custom child theme of Neve, developed by Kyaw Zaww Linn. This child theme introduces tailored design elements and functionality enhancements, while inheriting the clean and lightweight foundation of the Neve parent theme. Perfect for creating modern, responsive websites with ease.
  */
+
+ /* Custom Header */
+.site-header {
+    background-color: #1a73e8; /* Change the background color */
+    padding: 20px 0;
+}
+
+.site-header .site-title {
+    font-size: 2.5em;
+    color: #ffffff; /* Change the title color */
+}
+
