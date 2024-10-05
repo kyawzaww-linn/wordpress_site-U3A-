@@ -24,10 +24,13 @@ Theme Development
 
 ### Child Theme Structure
 
+```bash
 neve-child/
 ├── style.css             # Custom styles for theme (colors, typography, etc.)
 ├── functions.php         # Enqueues parent and child styles
 ├── screenshot.png        # Screenshot of the child theme for WordPress
+
+```
 
 ### Customizations
 
