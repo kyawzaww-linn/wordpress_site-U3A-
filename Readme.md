@@ -60,7 +60,7 @@ Development Workflow
 
 Here’s how you can start contributing to the theme:
 
-1.  bashCopy codegit clone https://github.com/kyawzawwlinn/wordpress-neve-child.git
+1.  bashCopy codegit clone git clone https://github.com/kyawzaww-linn/wordpress_site-U3A-.git
     
 2.  **Set up your local environment**:
     
