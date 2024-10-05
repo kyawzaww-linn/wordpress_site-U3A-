@@ -135,3 +135,28 @@ button:hover, .btn:hover {
     color: #1abc9c; /* Green hover effect */
 }
 
+/* Button Hover Animation */
+button, .btn {
+    background-color: #e91e63;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #d81b60;
+    transform: scale(1.05); /* Scale up button on hover */
+}
+
+/* Fade-in Animation for Content */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-content {
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation for content */
+}
+
