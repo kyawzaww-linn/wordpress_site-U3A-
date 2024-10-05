@@ -40,3 +40,18 @@ a:hover {
     color: #c2185b;
 }
 
+/* Custom Button Styles */
+button, .btn {
+    background-color: #ff4081; /* Pink color */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background-color: #f50057;
+}
+
