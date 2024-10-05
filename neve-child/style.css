@@ -1,36 +1,61 @@
-/**
- * Theme Name:     Neve Child
- * Author:         Kyaw Zaww Linn
- * Template:       neve - child theme
- * Text Domain:	   neve-child
- * Description:    A custom child theme of Neve, developed by Kyaw Zaww Linn. This child theme introduces tailored design elements and functionality enhancements, while inheriting the clean and lightweight foundation of the Neve parent theme. Perfect for creating modern, responsive websites with ease.
- */
+/*
+Theme Name:     Neve Child by Kyaw Zaww Linn
+Author:         Kyaw Zaww Linn
+Template:       neve  /* Corrected parent theme reference */
+Text Domain:    neve-child
+Description:    A custom child theme of Neve, developed by Kyaw Zaww Linn with enhanced design, typography, and layout customizations. This child theme makes significant modifications to the original Neve theme, introducing a fresh color palette and unique header/footer designs.
+Version:        1.0.0
+*/
 
- /* Custom Header */
+/* Custom Header */
 .site-header {
-    background-color: #1a73e8; /* Change the background color */
+    background-color: #1a73e8; /* Custom blue background for header */
     padding: 20px 0;
+    text-align: center;
 }
 
 .site-header .site-title {
     font-size: 2.5em;
-    color: #ffffff; /* Change the title color */
+    color: #ffffff; /* White title text */
 }
 
-/* Custom Typography */
+/* Custom Footer */
+.site-footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.site-footer a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #e67e22;
+}
+
+/* Typography */
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    color: #444;
     line-height: 1.8;
-    color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lora', serif;
-    color: #444;
+    color: #2c3e50; /* Darker header colors */
+    margin-bottom: 20px;
 }
 
-/* Custom Link Colors */
+/* Custom Link Styles */
 a {
     color: #e91e63;
     text-decoration: none;
@@ -38,11 +63,12 @@ a {
 
 a:hover {
     color: #c2185b;
+    text-decoration: underline;
 }
 
-/* Custom Button Styles */
+/* Button Styles */
 button, .btn {
-    background-color: #ff4081; /* Pink color */
+    background-color: #ff4081; /* Pink button background */
     border: none;
     color: white;
     padding: 12px 24px;
@@ -55,3 +81,38 @@ button:hover, .btn:hover {
     background-color: #f50057;
 }
 
+/* Custom Widget Area */
+.widget-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+/* Custom Sidebar */
+#custom_sidebar {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.custom-widget {
+    margin-bottom: 20px;
+}
+
+.custom-widget-title {
+    color: #ff4081;
+    font-size: 1.3em;
+}
+
+/* Custom Page Layout */
+.custom-page-layout {
+    padding: 40px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.custom-page-layout h1 {
+    color: #1a73e8;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
