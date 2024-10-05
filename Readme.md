@@ -24,7 +24,10 @@ Theme Development
 
 ### Child Theme Structure
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codeneve-child/  ├── style.css             # Custom styles for theme (colors, typography, etc.)  ├── functions.php         # Enqueues parent and child styles  ├── screenshot.png        # Screenshot of the child theme for WordPress   `
+neve-child/
+├── style.css             # Custom styles for theme (colors, typography, etc.)
+├── functions.php         # Enqueues parent and child styles
+├── screenshot.png        # Screenshot of the child theme for WordPress
 
 ### Customizations
 
