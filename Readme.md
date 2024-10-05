@@ -17,23 +17,19 @@ The Neve Child Theme inherits the structure and functionality from the parent Ne
 - **Membership Form:**  
   A custom web form has been created to allow users to sign up as U3A members. The form captures essential information such as name, email, and membership type.
 
-- **Event Calendar:**  
-  Custom PHP templates have been created to integrate an event calendar, allowing U3A to showcase upcoming events for its members.
 
 ### How to Make Further Changes
 
 To ensure continuity in development, here’s how to make further changes to the child theme:
 
 #### Directory Structure
-All child theme files are located in the `/wp-content/themes/neve-child/` directory.
+All child theme files are located in the `/neve-child/` directory.
 
 - **style.css:** Use this file to make any CSS-related changes, including color adjustments, typography changes, or layout modifications.
 - **functions.php:** Use this file to enqueue styles and scripts or to add/remove theme functionality.
-- **templates/:** All custom templates (e.g., event calendar, membership form) are located in this folder. To make modifications to these templates, simply edit the corresponding PHP files.
 
 #### Adding New Features
 - **CSS Customizations:** For design changes, edit the `style.css` file in the child theme directory. Ensure all custom styles are placed after the parent theme’s styles for proper cascading.
-- **PHP Templates:** Add new templates under the `templates/` directory. These can be page templates, custom post types, or any other necessary layout structures.
 - **JavaScript:** If you need to add custom JavaScript functionality, enqueue your scripts via the `functions.php` file. Ensure all scripts are properly registered and enqueued.
 
 ## 2. Testing Changes Locally
