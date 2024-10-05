@@ -160,3 +160,35 @@ button:hover, .btn:hover {
     animation: fadeIn 1s ease-in-out; /* Fade-in animation for content */
 }
 
+/* Custom Blog Post Layout */
+.blog .post {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    margin-bottom: 40px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog .post .post-thumbnail {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.blog .post .post-content {
+    padding: 10px;
+}
+
+.blog .post .post-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.blog .post .post-meta {
+    font-size: 0.9em;
+    color: #999;
+}
