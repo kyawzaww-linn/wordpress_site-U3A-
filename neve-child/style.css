@@ -17,3 +17,26 @@
     color: #ffffff; /* Change the title color */
 }
 
+/* Custom Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    color: #444;
+}
+
+/* Custom Link Colors */
+a {
+    color: #e91e63;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c2185b;
+}
+
