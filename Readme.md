@@ -1,134 +1,148 @@
-WordPress Neve Child Theme Development & Deployment
-===================================================
+# WordPress Neve Child Theme Development and Deployment
 
-Welcome to the **Neve Child Theme** developed by **Kyaw Zaww Linn**. This documentation will guide developers through the **development**, **deployment**, and **publishing workflow** of this child theme. The aim is to help maintain and extend the project, while also automating deployment to AWS.
+Welcome to the Neve Child Theme developed for U3A! This documentation is intended for developers who will continue working on the child theme and deployment process. It provides clear, step-by-step instructions on making further changes to the theme and deploying updates to the production environment.
 
-Key Features
-------------
+## 1. Theme Development
 
-*   **Custom Child Theme** based on the [Neve Theme](https://themeisle.com/themes/neve/).
-    
-*   **Color Customization**: Introduces a fresh color palette of navy blue and white.
-    
-*   **Header and Footer Redesign**: Custom header and footer for a modern, personalized look.
-    
-*   **Custom Typography and Layout**: Modified typography to match the project's branding.
-    
-*   **Responsive Design**: Fully responsive across mobile, tablet, and desktop.
-    
-*   **Automated Deployment**: Changes are automatically deployed to an AWS EC2 instance.
-    
+### Child Theme Overview
+The Neve Child Theme inherits the structure and functionality from the parent Neve theme while introducing customizations specific to the U3A project. These customizations are primarily focused on the design, layout, and content integration to align with U3A’s branding and user experience goals.
 
-Theme Development
------------------
+### Key Customizations
+- **Color Scheme:** The child theme uses a customized navy blue (`#000080`) and white (`#FFFFFF`) color palette, deviating from the default Neve colors.
+  
+- **Header and Footer:**
+  - The default Neve header has been customized to include U3A’s branding and relevant call-to-action buttons.
+  - The footer has been updated with new links and custom text tailored to U3A’s needs.
 
-### Child Theme Structure
+- **Membership Form:**  
+  A custom web form has been created to allow users to sign up as U3A members. The form captures essential information such as name, email, and membership type.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy codeneve-child/  ├── style.css             # Custom styles for theme (colors, typography, etc.)  ├── functions.php         # Enqueues parent and child styles  ├── screenshot.png        # Screenshot of the child theme for WordPress   `
 
-### Customizations
+### How to Make Further Changes
 
-1.  **Custom Styles**:
-    
-    *   Modified background colors, link hover effects, and typography using style.css.
-        
-    *   Custom header and footer styles for a modern appearance.
-        
-2.  **Header/Footer Redesign**:
-    
-    *   Customized the layout and color scheme for both header and footer areas in style.css.
-        
-3.  **Typography**:
-    
-    *   Changed default fonts to use a mix of Roboto and Lora for headings and body text.
-        
-    *   Improved readability by increasing base font sizes.
-        
-4.  **Functions.php**:
-    
-    *   functions.php ensures that both the parent and child theme styles are enqueued properly.
-        
+To ensure continuity in development, here’s how to make further changes to the child theme:
 
-Development Workflow
---------------------
+#### Directory Structure
+All child theme files are located in the `/neve-child/` directory.
 
-Here’s how you can start contributing to the theme:
+- **style.css:** Use this file to make any CSS-related changes, including color adjustments, typography changes, or layout modifications.
+- **functions.php:** Use this file to enqueue styles and scripts or to add/remove theme functionality.
 
-1.  bashCopy codegit clone https://github.com/kyawzawwlinn/wordpress-neve-child.git
-    
-2.  **Set up your local environment**:
-    
-    *   You should use **Docker** for local development. A docker-compose.yml file is included to simplify the setup.
-        
-    *   bashCopy codedocker-compose up
-        
-    *   The local WordPress environment will be available at http://localhost:8000.
-        
-3.  bashCopy codegit checkout -b feature/my-new-feature
-    
-4.  **Make changes to the theme**:
-    
-    *   Modify style.css for visual tweaks.
-        
-    *   Add custom scripts or modify functionality in functions.php.
-        
-5.  bashCopy codegit add .git commit -m "Description of changes"
-    
-6.  bashCopy codegit push origin feature/my-new-feature
-    
-7.  **Open a pull request**:
-    
-    *   Go to the GitHub repository and open a pull request to merge your changes into the main branch.
-        
+#### Adding New Features
+- **CSS Customizations:** For design changes, edit the `style.css` file in the child theme directory. Ensure all custom styles are placed after the parent theme’s styles for proper cascading.
+- **JavaScript:** If you need to add custom JavaScript functionality, enqueue your scripts via the `functions.php` file. Ensure all scripts are properly registered and enqueued.
 
-Deployment
-----------
+## 2. Testing Changes Locally
+It’s essential to test all changes in your local development environment (set up with Docker) before deploying them to production.
 
-The project uses **AWS EC2** for hosting the production site. All changes pushed to the main branch are automatically deployed to the EC2 instance using **GitHub Actions** and **AWS Systems Manager (SSM)**. Here’s how you can deploy updates or set up the deployment workflow.
 
-### Automated Deployment Steps:
+## 2. Deployment Workflow
 
-1.  **Trigger the GitHub Actions workflow**:
-    
-    *   When changes are pushed to the main branch, GitHub Actions automatically initiates the deployment process.
-        
-2.  **GitHub Actions Workflow**:
-    
-    *   The GitHub Actions workflow uses **AWS CLI** to send commands via **SSM** to the EC2 instance.
-        
-    *   The EC2 instance pulls the latest changes from the GitHub repository and applies them to the WordPress site.
-        
-    *   Apache is restarted to ensure the changes are reflected immediately.
-        
+The deployment process for the U3A website is streamlined using GitHub Actions and AWS Systems Manager (SSM). The following steps explain how to make changes to the site, including local testing and production deployment.
 
-### Manual Deployment (if necessary):
+### Local Development
 
-1.  bashCopy codessh -i /path-to-your-key.pem ec2-user@your-ec2-public-ip
-    
-2.  bashCopy codecd /var/www/html/wp-content/themes/neve-child/
-    
-3.  bashCopy codegit pull origin main
-    
-4.  bashCopy codesudo systemctl restart apache2
-    
+#### Prerequisites
+- **Docker:** Ensure Docker is installed and running on your machine.
+- **Git:** Use Git for version control.
 
-Workflow Details
-----------------
+#### Steps for Local Development:
 
-### GitHub Actions Workflow
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/kyawzaww-linn/wordpress-site-U3A.git
+   cd wordpress-site-U3A
+### Set up Docker
+Use the following command to start your Docker containers and set up the local development environment:
 
-The project uses a **GitHub Actions** workflow to automate deployments. Here’s a high-level overview of the process:
+```bash
+docker-compose up -d
+```
 
-1.  **Trigger**: The workflow is triggered by any changes pushed to the main branch.
-    
-2.  **Installation**: The workflow installs the **AWS CLI** on the GitHub runner.
-    
-3.  **Command Execution**: It then uses **SSM** to send commands to the EC2 instance.
-    
-4.  **Theme Update**: The EC2 instance pulls the latest code from the GitHub repository and restarts Apache.
-    
+### Access the site
+Navigate to [http://localhost:8000](http://localhost:8000) in your browser to view the local version of the site.
 
-Conclusion
-----------
+### Make Changes
+Modify the theme files in the `/wp-content/themes/neve-child/` directory as needed. Ensure all changes are tested locally before committing.
 
-This project automates the deployment of the Neve child theme, making it easier for developers to contribute and release updates. For any questions or issues, feel free to reach out to **kyawzawwlinn**@my.jcu.edu.au
+### Commit and Push Changes
+After confirming that your changes work as expected, commit and push them to the repository:
+
+```bash
+git add .
+git commit -m "Describe the specific change in the imperative mood"
+git push origin main
+```
+
+## Deployment to Production
+
+The deployment process is automated using **GitHub Actions**, which pushes updates to the AWS EC2 production environment whenever changes are made to the `main` branch.
+
+### Automated Deployment Workflow
+
+Once changes are pushed to the `main` branch, GitHub Actions triggers the deployment process. Here’s how it works:
+
+1. **GitHub Actions** pulls the latest code from the repository.
+2. It uses **AWS Systems Manager (SSM)** to remotely connect to the EC2 instance.
+3. SSM runs the necessary commands to pull the updated code onto the server and restart the web server (Apache).
+
+### Steps for Deployment
+
+#### Push to Main:
+Ensure all changes are pushed to the `main` branch:
+```bash
+git push origin main
+```
+
+### Automatic Deployment:
+GitHub Actions will automatically deploy the changes to production. You can monitor the status of the deployment in the **Actions** tab of your GitHub repository.
+
+### Verify Changes:
+After deployment, visit the production site and verify that the changes are live.
+
+### Workflow File (.github/workflows/deploy.yml):
+Below is the GitHub Actions workflow used for automated deployment:
+
+```yaml
+name: Deploy to EC2 via SSM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli -y
+
+      - name: Configure AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region <your-aws-region>
+
+      - name: Deploy to EC2 via SSM
+        run: |
+          aws ssm send-command \
+            --instance-ids "your-instance-id" \
+            --document-name "AWS-RunShellScript" \
+            --parameters commands="cd /var/www/html/wp-content/themes/neve-child && git pull origin main && sudo systemctl restart apache2" \
+            --output text
+```
+
+## Conclusion
+This documentation provides clear and concise instructions for continuing the development and deployment of the Neve Child Theme for U3A. Developers should follow the steps provided to make theme modifications and deploy updates seamlessly to the production environment.
+
+If you run into any issues, feel free to reach out to [kyawzawwlinn@my.jcu.edu.au].
+
+Happy developing! 🚀✨
+
