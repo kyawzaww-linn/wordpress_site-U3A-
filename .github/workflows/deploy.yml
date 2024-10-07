@@ -25,14 +25,14 @@ jobs:
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region <your-aws-region>
+          aws configure set region ap-southeast-1
 
       # Step 4: Use AWS SSM to deploy code to EC2 instance
       - name: Deploy to EC2 via SSM
         run: |
           aws ssm send-command \
-            --instance-ids "your-instance-id" \
+            --instance-ids "i-070c298d9232c0169" \
             --document-name "AWS-RunShellScript" \
             --comment "Deploying Neve Child Theme" \
-            --parameters commands="cd /path/to/wordpress/wp-content/themes/neve-child && git pull origin main" \
+            --parameters commands="cd /opt/bitnami/apps/wordpress/htdocs/wp-content/themes/neve-child && git pull origin main" \
             --output text
