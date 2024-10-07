@@ -116,27 +116,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      # Step 1: Checkout the repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Install AWS CLI via pip
       - name: Install AWS CLI
         run: |
           sudo apt-get update
-          sudo apt-get install awscli -y
+          sudo apt-get install python3-pip -y
+          pip3 install awscli --upgrade --user
 
+      # Step 3: Configure AWS credentials using GitHub Secrets
       - name: Configure AWS credentials
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region <your-aws-region>
+          aws configure set region ap-southeast-1
 
+      # Step 4: Use AWS SSM to deploy code to EC2 instance
       - name: Deploy to EC2 via SSM
         run: |
           aws ssm send-command \
-            --instance-ids "your-instance-id" \
+            --instance-ids "i-070c298d9232c0169" \
             --document-name "AWS-RunShellScript" \
-            --parameters commands="cd /var/www/html/wp-content/themes/neve-child && git pull origin main && sudo systemctl restart apache2" \
-            --output text
+            --comment "Deploying Neve Child Theme" \
+            --parameters commands="cd /opt/bitnami/apps/wordpress/htdocs/wp-content/themes/neve-child
 ```
 
 ## Conclusion
