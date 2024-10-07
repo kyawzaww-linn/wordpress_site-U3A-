@@ -14,11 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Install AWS CLI
+      # Step 2: Install AWS CLI via pip
       - name: Install AWS CLI
         run: |
           sudo apt-get update
-          sudo apt-get install awscli -y
+          sudo apt-get install python3-pip -y
+          pip3 install awscli --upgrade --user
 
       # Step 3: Configure AWS credentials using GitHub Secrets
       - name: Configure AWS credentials
@@ -34,5 +35,4 @@ jobs:
             --instance-ids "i-070c298d9232c0169" \
             --document-name "AWS-RunShellScript" \
             --comment "Deploying Neve Child Theme" \
-            --parameters commands="cd /opt/bitnami/apps/wordpress/htdocs/wp-content/themes/neve-child && git pull origin main" \
-            --output text
+            --parameters commands="cd /opt/bitnami/apps/wordpress/htdocs/wp-content/themes/neve-child
